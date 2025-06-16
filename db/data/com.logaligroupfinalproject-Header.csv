@@ -1,0 +1,6 @@
+idHeader,email,firstName,lastName,country,createon,deliveryDate,orderStatus_code,imageUrl
+ORD-001,cliente1@example.com,Juan,Pérez,México,2023-10-15,2023-10-20T14:30:00,OutOfStock,/images/orders/001.jpg
+ORD-002,cliente2@example.net,María,Gómez,España,2023-10-16,2023-10-21T10:15:00,OutOfStock,/images/orders/002.jpg
+ORD-003,user3@test.com,Carlos,Rodríguez,Colombia,2023-10-17,2023-10-22T16:45:00,LowAvailability,/images/orders/003.jpg
+ORD-004,buyer4@domain.com,Ana,Martínez,Argentina,2023-10-18,2023-10-23T09:00:00,LowAvailability,/images/orders/004.jpg
+ORD-005,client5@mail.org,Luis,Hernández,Chile,2023-10-19,2023-10-24T11:30:00,InStock,/images/orders/005.jpg

@@ -1,0 +1,7 @@
+idItems,idHeader_idHeader,name,description,releaseDate,discontinuedDate,price,height,width,depth,quantity,unitofmeasure
+ITEM-001,ORD-001,Smartphone X,Modelo avanzado,2023-01-15,2025-01-15,899.99,15.50,7.20,0.80,1.000,CM
+ITEM-002,ORD-001,Funda protectora,Antigolpes,2023-02-10,,29.99,16.00,8.00,1.20,2.000,CM
+ITEM-003,ORD-002,Tablet Pro,Pantalla 10",2022-11-05,2024-11-05,450.00,24.20,16.50,0.70,1.000,CM
+ITEM-004,ORD-003,Auriculares BT,Noise cancelling,2023-03-20,,199.99,18.00,15.00,7.50,1.000,CM
+ITEM-005,ORD-004,Smartwatch 3,Pulsera deportiva,2023-04-05,,249.50,4.50,4.50,1.20,1.000,CM
+ITEM-006,ORD-005,Teclado inalámbrico,Ergonómico,2023-01-30,,79.99,3.50,45.00,2.50,1.000,CM
