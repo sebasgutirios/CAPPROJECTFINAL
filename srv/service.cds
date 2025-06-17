@@ -4,7 +4,5 @@ service logaliGroup {
 
     entity Header as projection on entities2.Header;
     entity Items  as projection on entities2.Items;
-        entity Status as projection on entities2.Status;
-
-
+    entity Status as projection on entities2.Status;
 };

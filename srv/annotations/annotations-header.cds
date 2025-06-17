@@ -13,27 +13,33 @@ annotate services.Header with {
 };
 
 annotate services.Header with {
-    orderStatus @Common : { 
-        Text : orderStatus.name,
-        TextArrangement : #TextOnly,
-     }
+    orderStatus @Common: {
+        Text           : orderStatus.name,
+        TextArrangement: #TextOnly,
+    };
 };
 
 annotate services.Header with @(
-    Common.SemanticKey : [
-        idHeader
-    ],
-    UI.HeaderInfo     : {
+    Common.SemanticKey        : [idHeader],
+    UI.HeaderInfo             : {
         $Type         : 'UI.HeaderInfoType',
         TypeName      : 'Sales Order',
         TypeNamePlural: 'Sales Orders',
+        Title         : {
+            $Type: 'UI.DataField',
+            Value: firstName,
+        },
+        Description   : {
+            $Type: 'UI.DataField',
+            Value: idHeader,
+        },
     },
 
-    UI.SelectionFields: [
+    UI.SelectionFields        : [
         idHeader,
         orderStatus_code
     ],
-    UI.LineItem       : [
+    UI.LineItem               : [
         {
             $Type: 'UI.DataField',
             Value: idHeader
@@ -63,13 +69,86 @@ annotate services.Header with @(
             Value: deliveryDate
         },
         {
-            $Type: 'UI.DataField',
-            Value: orderStatus_code,
-            Criticality:orderStatus.criticality
+            $Type      : 'UI.DataField',
+            Value      : orderStatus_code,
+            Criticality: orderStatus.criticality
         },
         {
             $Type: 'UI.DataField',
             Value: imageUrl
         }
+    ],
+    UI.FieldGroup #HEADERINFO2: {
+        $Type: 'UI.FieldGroupType',
+        Data : [
+            {
+                $Type: 'UI.DataField',
+                Value: country
+            },
+            {
+                $Type: 'UI.DataField',
+                Value: createon
+            }
+        ],
+    },
+    UI.FieldGroup #HEADERINFO3 : {
+        $Type: 'UI.FieldGroupType',
+        Data : [
+            {
+                $Type: 'UI.DataField',
+                Value: orderStatus_code,
+                Label:'',
+                Criticality: orderStatus.criticality
+            }
+        ],
+    },  
+        UI.FieldGroup #HEADERINFO4 : {
+        $Type: 'UI.FieldGroupType',
+        Data : [
+            {
+                $Type: 'UI.DataField',
+                Value: createon,
+                Label: ''
+            },
+                      {
+                $Type: 'UI.DataField',
+                Value: deliveryDate 
+            },
+        ],
+    },   
+    UI.FieldGroup #HEADERINFO : {
+        $Type: 'UI.FieldGroupType',
+        Data : [
+            {
+                $Type: 'UI.DataField',
+                Value: firstName
+            },
+            {
+                $Type: 'UI.DataField',
+                Value: lastName
+            }
+        ],
+    },
+    UI.HeaderFacets           : [
+        {
+        $Type : 'UI.ReferenceFacet',
+        Target: '@UI.FieldGroup#HEADERINFO',
+        Label : 'Order Information'
+    }, 
+            {
+        $Type : 'UI.ReferenceFacet',
+        Target: '@UI.FieldGroup#HEADERINFO2',
+        Label : 'additional information'
+    },
+    {
+        $Type : 'UI.ReferenceFacet',
+        Target: '@UI.FieldGroup#HEADERINFO3',
+        Label : 'Availability'
+    },
+        {
+        $Type : 'UI.ReferenceFacet',
+        Target: '@UI.FieldGroup#HEADERINFO4',
+        Label : 'Createon'
+    },
     ],
 );
