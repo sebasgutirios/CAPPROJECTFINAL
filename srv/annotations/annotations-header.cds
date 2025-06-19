@@ -1,5 +1,7 @@
 using {logaliGroup as services} from '../service';
 
+using from './annotations-items';
+
 annotate services.Header with {
     idHeader     @title: 'Id Header';
     email        @title: 'Email';
@@ -91,31 +93,25 @@ annotate services.Header with @(
             }
         ],
     },
-    UI.FieldGroup #HEADERINFO3 : {
+    UI.FieldGroup #HEADERINFO3: {
+        $Type: 'UI.FieldGroupType',
+        Data : [{
+            $Type      : 'UI.DataField',
+            Value      : orderStatus_code,
+            Label      : '',
+            Criticality: orderStatus.criticality
+        }],
+    },
+    UI.FieldGroup #HEADERINFO4: {
         $Type: 'UI.FieldGroupType',
         Data : [
             {
                 $Type: 'UI.DataField',
-                Value: orderStatus_code,
-                Label:'',
-                Criticality: orderStatus.criticality
-            }
-        ],
-    },  
-        UI.FieldGroup #HEADERINFO4 : {
-        $Type: 'UI.FieldGroupType',
-        Data : [
-            {
-                $Type: 'UI.DataField',
-                Value: createon,
+                Value: deliveryDate,
                 Label: ''
             },
-                      {
-                $Type: 'UI.DataField',
-                Value: deliveryDate 
-            },
         ],
-    },   
+    },
     UI.FieldGroup #HEADERINFO : {
         $Type: 'UI.FieldGroupType',
         Data : [
@@ -131,24 +127,34 @@ annotate services.Header with @(
     },
     UI.HeaderFacets           : [
         {
-        $Type : 'UI.ReferenceFacet',
-        Target: '@UI.FieldGroup#HEADERINFO',
-        Label : 'Order Information'
-    }, 
-            {
-        $Type : 'UI.ReferenceFacet',
-        Target: '@UI.FieldGroup#HEADERINFO2',
-        Label : 'additional information'
-    },
-    {
-        $Type : 'UI.ReferenceFacet',
-        Target: '@UI.FieldGroup#HEADERINFO3',
-        Label : 'Availability'
-    },
+            $Type : 'UI.ReferenceFacet',
+            Target: '@UI.FieldGroup#HEADERINFO',
+            Label : 'Order Information'
+        },
         {
-        $Type : 'UI.ReferenceFacet',
-        Target: '@UI.FieldGroup#HEADERINFO4',
-        Label : 'Createon'
-    },
+            $Type : 'UI.ReferenceFacet',
+            Target: '@UI.FieldGroup#HEADERINFO2',
+            Label : 'Additional information'
+        },
+        {
+            $Type : 'UI.ReferenceFacet',
+            Target: '@UI.FieldGroup#HEADERINFO3',
+            Label : 'Availability'
+        },
+        {
+            $Type : 'UI.ReferenceFacet',
+            Target: '@UI.FieldGroup#HEADERINFO4',
+            Label : 'Delivery Date'
+        },     
     ],
+    UI.Facets : [
+        {
+            $Type : 'UI.ReferenceFacet',
+            Target : 'toItems/@UI.LineItem',
+            Label : 'Items'
+        },
+                
+    ],
+    
+
 );
