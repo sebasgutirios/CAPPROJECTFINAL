@@ -37,6 +37,7 @@ annotate services.Header with @(
             $Type: 'UI.DataField',
             Value: idHeader,
         },
+        ImageUrl : imageUrl,
     },
 
     UI.SelectionFields        : [
@@ -93,6 +94,7 @@ annotate services.Header with @(
                 $Type: 'UI.DataField',
                 Value: createon
             }
+            
         ],
     },
     UI.FieldGroup #HEADERINFO3: {
@@ -112,6 +114,11 @@ annotate services.Header with @(
                 Value: deliveryDate,
                 Label: ''
             },
+            
+            {
+                $Type: 'UI.DataField',
+                Value: imageUrl
+            }
         ],
     },
     UI.FieldGroup #HEADERINFO : {
