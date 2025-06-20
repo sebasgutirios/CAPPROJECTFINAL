@@ -2,6 +2,8 @@ using {logaliGroup as services} from '../service';
 
 using from './annotations-items';
 
+annotate services.Header with @odata.draft.enabled;
+
 annotate services.Header with {
     idHeader     @title: 'Id Header';
     email        @title: 'Email';
@@ -122,6 +124,10 @@ annotate services.Header with @(
             {
                 $Type: 'UI.DataField',
                 Value: lastName
+            },
+            {
+                $Type: 'UI.DataField',
+                Value: email
             }
         ],
     },
