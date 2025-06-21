@@ -126,10 +126,6 @@ annotate services.Header with @(
         Data : [
             {
                 $Type: 'UI.DataField',
-                Value: firstName
-            },
-            {
-                $Type: 'UI.DataField',
                 Value: lastName
             },
             {
